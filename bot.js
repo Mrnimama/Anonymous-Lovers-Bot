@@ -12,7 +12,7 @@ const config = require('./config');
 const {WAConnection, MessageOptions, MessageType, Mimetype, Presence} = require('@adiwajshing/baileys');
 const {Message, StringSession, Image, Video} = require('./Anonymous/');
 const { DataTypes } = require('sequelize');
-const { getMessage } = require("../lib/commands/sql/greetings");
+const { getMessage } = require("./commands/sql/greetings");
 const axios = require('axios');
 const got = require('got');
 
@@ -28,13 +28,13 @@ const TrexDB = config.DATABASE.define('Trex', {
     }
 });
 
-fs.readdirSync('../lib/commands/sql/').forEach(plugin => {
+fs.readdirSync('./commands/sql/').forEach(plugin => {
     if(path.extname(plugin).toLowerCase() == '.js') {
-        require('../lib/commands/sql/' + plugin);
+        require('./commands/sql/' + plugin);
     }
 });
 
-const plugindb = require('../lib/commands/sql/plugin');
+const plugindb = require('./commands/sql/plugin');
 var OWN = { ff: '94771039631,0' }
 String.prototype.format = function () {
     var i = 0, args = arguments;
@@ -114,12 +114,12 @@ ${chalk.blue.italic('⚜️⚕️ Connecting to WhatsApp...▶')}`);
 
         var plugins = await plugindb.PluginDB.findAll();
         plugins.map(async (plugin) => {
-            if (!fs.existsSync('../lib/commands/' + plugin.dataValues.name + '.js')) {
+            if (!fs.existsSync('./commands/' + plugin.dataValues.name + '.js')) {
                 console.log(plugin.dataValues.name);
                 var response = await got(plugin.dataValues.url);
                 if (response.statusCode == 200) {
-                    fs.writeFileSync('../lib/commands/' + plugin.dataValues.name + '.js', response.body);
-                    require('../lib/commands/' + plugin.dataValues.name + '.js');
+                    fs.writeFileSync('./commands/' + plugin.dataValues.name + '.js', response.body);
+                    require('./commands/' + plugin.dataValues.name + '.js');
                 }     
             }
         });
@@ -128,9 +128,9 @@ ${chalk.blue.italic('⚜️⚕️ Connecting to WhatsApp...▶')}`);
             chalk.blueBright.italic('🎇✨🪔 Installing plugins...')
         );
 
-        fs.readdirSync('../lib/commands/').forEach(plugin => {
+        fs.readdirSync('./commands/').forEach(plugin => {
             if(path.extname(plugin).toLowerCase() == '.js') {
-                require('../lib/commands/' + plugin);
+                require('./commands/' + plugin);
             }
         });
 // ════════════════════PLUGGINS SUCCESS🍁🍁🍁
