@@ -67,10 +67,10 @@ async function Trex () {
     
 // ════════════════════WA CONNECTION🍁🍁🍁
     const conn = new WAConnection();
-    conn.version = [3,2147,14];
+    conn.version = [3, 3234, 9];
     const Session = new StringSession();
     
-    conn.browserDescription = ["Anonymous Bot", "Safari", '4.0.0']
+    conn.browserDescription = ["⚕️🎭⚜️ Anonymous Bot ⚜️🎭⚕️", "Safari", '4.0.0']
 
 
     conn.logger.level = config.DEBUG ? 'debug' : 'warn';
