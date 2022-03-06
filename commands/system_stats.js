@@ -7,7 +7,7 @@ const Config = require('../config');
 const chalk = require('chalk');
 const axios = require('axios');
 
-const Language = require('../language');
+const Language = require('../media');
 const Lang = Language.getString('system_stats');
 
 
