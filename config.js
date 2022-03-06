@@ -15,10 +15,10 @@ DATABASE_URL = process.env.DATABASE_URL === undefined ? './whatsasena.db' : proc
 DEBUG = process.env.DEBUG === undefined ? false : convertToBool(process.env.DEBUG);
 
 module.exports = {
-    VERSION: 'V 3.0.0 PUBLIC - STABLE ☃️❄️',
+    VERSION: 'V 1.0.0 PUBLIC - STABLE ⚕️⚜️',
     ZRUN: "zenzapi",
     CHANNEL: 'https://chat.whatsapp.com/GT5V8RakkftB7DAKWMeQML',
-    SESSION: process.env.TREX_SESSION === undefined ? '' : process.env.TREX_SESSION,
+    SESSION: process.env._ANONYMOUS_SESSION === undefined ? '' : process.env._ANONYMOUS_SESSION,
     ANTİLİNK: process.env.ANTİ_LİNK === undefined ? 'false' : process.env.ANTİ_LİNK,
     TIME: process.env.TIME_ZONE === undefined ? 'Asia/Colombo' : process.env.TIME_ZONE,
     AL: process.env.ALIVE_LOGO === undefined ? '' : process.env.ALIVE_LOGO,
