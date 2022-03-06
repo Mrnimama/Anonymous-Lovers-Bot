@@ -1,21 +1,21 @@
 {
-  "name": "T-REX",
-  "version": "V 3.0.0",
+  "name": "ANONYMOUS-BOT",
+  "version": "V 1.0.0",
   "description": ".",
-  "main": "./xmas/bot.js",
+  "main": "./Anonymous-Lovers-Bot/bot.js",
   "scripts": {
     "start": "supervisor -s bot.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DARKCRIME1/xmas.git"
+    "url": "git+https://github.com/DARKCRIME1/Anonymous-Lovers-Bot.git"
   },
   "keywords": [
     "whatsapp",
     "bot",
     "ai",
     "T-REX",
-    "T-REX WA"
+    "ANONYMOUS WA"
   ],
   "author": "Hiruwa",
   "developer": "@Hiruwa / @Hiruwa",
