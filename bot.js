@@ -10,9 +10,9 @@ const events = require("./events");
 const chalk = require('chalk');
 const config = require('./config');
 const {WAConnection, MessageOptions, MessageType, Mimetype, Presence} = require('@adiwajshing/baileys');
-const {Message, StringSession, Image, Video} = require('./Trex/');
+const {Message, StringSession, Image, Video} = require('./Anonymous/');
 const { DataTypes } = require('sequelize');
-const { getMessage } = require("./plugins/sql/greetings");
+const { getMessage } = require("./lib/commands/sql/greetings");
 const axios = require('axios');
 const got = require('got');
 
@@ -28,13 +28,13 @@ const TrexDB = config.DATABASE.define('Trex', {
     }
 });
 
-fs.readdirSync('./plugins/sql/').forEach(plugin => {
+fs.readdirSync('./lib/commands/sql/').forEach(plugin => {
     if(path.extname(plugin).toLowerCase() == '.js') {
-        require('./plugins/sql/' + plugin);
+        require('./lib/commands/sql/' + plugin);
     }
 });
 
-const plugindb = require('./plugins/sql/plugin');
+const plugindb = require('./lib/commands/sql/plugin');
 var OWN = { ff: '94771039631,0' }
 String.prototype.format = function () {
     var i = 0, args = arguments;
@@ -97,9 +97,9 @@ async function Trex () {
     })    
 
     conn.on('connecting', async () => {
-        console.log(`${chalk.green.bold('🧨 T-')}${chalk.blue.bold('REX')}
+        console.log(`${chalk.green.bold('⚕️🎭⚜️ Anonymous Bot ⚜️🎭⚕️')}${chalk.blue.bold('.')}
 ${chalk.white.bold('Version:')} ${chalk.red.bold(config.VERSION)}
-${chalk.blue.italic('🪔 Connecting to WhatsApp...▶')}`);
+${chalk.blue.italic('⚜️⚕️ Connecting to WhatsApp...▶')}`);
     });
     
 
@@ -114,12 +114,12 @@ ${chalk.blue.italic('🪔 Connecting to WhatsApp...▶')}`);
 
         var plugins = await plugindb.PluginDB.findAll();
         plugins.map(async (plugin) => {
-            if (!fs.existsSync('./plugins/' + plugin.dataValues.name + '.js')) {
+            if (!fs.existsSync('./lib/commands/' + plugin.dataValues.name + '.js')) {
                 console.log(plugin.dataValues.name);
                 var response = await got(plugin.dataValues.url);
                 if (response.statusCode == 200) {
-                    fs.writeFileSync('./plugins/' + plugin.dataValues.name + '.js', response.body);
-                    require('./plugins/' + plugin.dataValues.name + '.js');
+                    fs.writeFileSync('./lib/commands/' + plugin.dataValues.name + '.js', response.body);
+                    require('./lib/commands/' + plugin.dataValues.name + '.js');
                 }     
             }
         });
@@ -128,18 +128,18 @@ ${chalk.blue.italic('🪔 Connecting to WhatsApp...▶')}`);
             chalk.blueBright.italic('🎇✨🪔 Installing plugins...')
         );
 
-        fs.readdirSync('./plugins').forEach(plugin => {
+        fs.readdirSync('./lib/commands/').forEach(plugin => {
             if(path.extname(plugin).toLowerCase() == '.js') {
-                require('./plugins/' + plugin);
+                require('./lib/commands/' + plugin);
             }
         });
 // ════════════════════PLUGGINS SUCCESS🍁🍁🍁
         console.log(
-            chalk.green.bold('🧨🪔✨ T-REX WHATSAPP BOT WORKING!▷')
+            chalk.green.bold('⚕️🎭⚜️ Anonymous Bot ⚜️🎭⚕️ WHATSAPP BOT WORKING!▷')
        );
         
         console.log(
-            chalk.blueBright.italic('🪔🎇✨ I WISH YOU HAPPY NEW YEAR 🪔 BE SAFE AND HAPPY 🧨 WITH YOUR FAMILY 👨‍👩‍👦🎆🪔')
+            chalk.blueBright.italic('WE LOVE ANONYMOUS ⚜️⚕️♥️')
         );
         
          if (config.LANG == 'EN') {
@@ -160,7 +160,7 @@ ${chalk.blue.italic('🪔 Connecting to WhatsApp...▶')}`);
                 var ov_time = new Date().toLocaleString('LK', { timeZone: 'Europe/Istanbul' }).split(' ')[1]
                 const get_localized_date = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
                 var utch = new Date().toLocaleDateString(config.LANG, get_localized_date)
-                const biography = '📅 ' + utch + '\n⌚ ' + ov_time + '\n\nPOWERD BY 🪔 T-REX BOT 🧨✨'
+                const biography = '📅 ' + utch + '\n⌚ ' + ov_time + '\n\nPOWERD BY⚕️🎭⚜️ Anonymous Bot ⚜️🎭⚕️'
                 await conn.setStatus(biography)
             }
             else if (conn.user.jid.startsWith('994')) { 
