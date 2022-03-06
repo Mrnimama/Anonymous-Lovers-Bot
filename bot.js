@@ -134,9 +134,7 @@ ${chalk.blue.italic('⚜️⚕️ Connecting to WhatsApp...▶')}`);
             }
         });
 // ════════════════════PLUGGINS SUCCESS🍁🍁🍁
-        console.log(
-            chalk.green.bold('⚕️🎭⚜️ Anonymous Bot ⚜️🎭⚕️ WHATSAPP BOT WORKING!▷')
-       );
+        
         
         console.log(
             chalk.blueBright.italic('WE LOVE ANONYMOUS ⚜️⚕️♥️')
@@ -152,6 +150,10 @@ ${chalk.blue.italic('⚜️⚕️ Connecting to WhatsApp...▶')}`);
              await conn.sendMessage(conn.user.jid, fs.readFileSync("./src/IMG-20210910-WA0097.png"), MessageType.image, { caption: `🪔 HAPPY NEW YEAR !!🧨  ${conn.user.name}! \\nn*👿 Welcome To ⚕️🎭⚜️ Anonymous Bot ⚜️🎭⚕️ :│🍁*\n\n\n Your Bot Working  As ${config.WORKTYPE} 👿.\n\n*👿 │⚕️🎭⚜️ Anonymous Bot ⚜️🎭⚕️ WORKING Your Account*\n\n*🍁▷ Use the 🚀.trex command to get bot menu...*\n\n\n*👿 ⚕️🎭⚜️ Anonymous Bot ⚜️🎭⚕️ is a powerfull WhatsApp robot developed by Hiruwa.*\n\n*🚀 This is your LOG number. Avoid using the command here.\n\n👿 .new Command use for new items*\n\n`});
         }
      });
+    
+    console.log(
+            chalk.green.bold('⚕️🎭⚜️ Anonymous Bot ⚜️🎭⚕️ WHATSAPP BOT WORKING!▷')
+       );
     
 // ════════════════════LOGIN MESSAGE🍁🍁
     setInterval(async () => { 
