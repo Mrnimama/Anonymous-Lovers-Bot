@@ -2,7 +2,7 @@ const Amdi = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
 const Config = require('../config');
 
-const Language = require('../media');
+const Language = require('../language');
 const Lang = Language.getString('afk');
 
 var AFK = {
