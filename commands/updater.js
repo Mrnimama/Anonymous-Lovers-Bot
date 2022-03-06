@@ -14,7 +14,7 @@ const Heroku = require('heroku-client');
 const { PassThrough } = require('stream');
 const heroku = new Heroku({ token: Config.HEROKU.API_KEY })
 
-const Language = require('../media');
+const Language = require('../language');
 const Lang = Language.getString('updater');
 
 
