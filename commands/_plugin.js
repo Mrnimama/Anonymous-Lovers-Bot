@@ -5,7 +5,7 @@ const {MessageType} = require('@adiwajshing/baileys');
 const got = require('got');
 const fs = require('fs');
 const Db = require('./sql/plugin');
-const Language = require('../language');
+const Language = require('../media');
 const Lang = Language.getString('_plugin');
 const NLang = Language.getString('updater');
 
@@ -44,11 +44,11 @@ Trex.addrex({pattern: 'plug ?(.*)', fromMe: true, desc: Lang.INSTALL_DESC, warn:
             plugin_name = "." + Math.random().toString(36).substring(8);
         }
 
-        fs.writeFileSync('./lib/commands/' + plugin_name + '.js', response.body);
+        fs.writeFileSync('./commands/' + plugin_name + '.js', response.body);
         try {
             require('./' + plugin_name);
         } catch (e) {
-            fs.unlinkSync('/root/Anonymous-Lovers-Bot/lib/commands/' + plugin_name + '.js')
+            fs.unlinkSync('/root/Anonymous-Lovers-Bot/commands/' + plugin_name + '.js')
             return await message.sendMessage(Lang.INVALID_PLUGIN + ' ```' + e + '```');
         }
 
@@ -86,7 +86,7 @@ Trex.addrex({pattern: 'unplug(?: |$)(.*)', fromMe: true, desc: Lang.REMOVE_DESC}
     } else {
         await plugin[0].destroy();
         delete require.cache[require.resolve('./' + match[1] + '.js')]
-        fs.unlinkSync('./lib/commands/' + match[1] + '.js');
+        fs.unlinkSync('./commands/' + match[1] + '.js');
         await message.client.sendMessage(message.jid, Lang.DELETED, MessageType.text);
         
         await new Promise(r => setTimeout(r, 1000));
